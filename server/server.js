@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
+import ClientError from './lib/client-error.js';
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
@@ -22,7 +23,7 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-app.get('/api/productPhotos', async (req, res) => {
+app.get('/api/productPhotos', async (req, res, next) => {
   try {
     const sql = ` 
     select "pp"."productId",
@@ -35,8 +36,63 @@ app.get('/api/productPhotos', async (req, res) => {
     const result = await db.query(sql);
     res.json(result.rows);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'an unexpected error occurred' });
+    next(error);
+  }
+});
+
+app.get('/api/browse', async (req, res, next) => {
+  try {
+    const sql = `
+    select "pp"."productId",
+    "pp"."photoUrl",
+    "products"."team",
+    "products"."productName",
+    "prices"."price"
+    from "productPhotos" as "pp"
+    join "products" using ("productId")
+    join "prices" using ("productId")
+    `;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/api/browse/:productId', async (req, res, next) => {
+  try {
+    const productId = Number(req.params.productId);
+    if (!productId) {
+      throw new ClientError(
+        404,
+        `cannot find product with productId ${productId}`
+      );
+    }
+    const sql = `
+      select "pp"."productId",
+      "pp"."photoUrl",
+      "products"."team",
+      "prices"."price",
+      "products"."productName",
+      "products"."productDesc",
+      "productSizes"."sizes"
+      from "productPhotos" as "pp"
+      join "products" using ("productId")
+      join "prices" using ("productId")
+      join "productSizes" using ("productId")
+      where "products"."productId" = $1
+      `;
+    const params = [productId];
+    const result = await db.query(sql, params);
+    if (!result.rows[0]) {
+      throw new ClientError(
+        404,
+        `cannot find product with productId ${productId}`
+      );
+    }
+    res.json(result.rows);
+  } catch (error) {
+    next(error);
   }
 });
 

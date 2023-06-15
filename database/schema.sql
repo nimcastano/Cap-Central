@@ -42,7 +42,7 @@ CREATE TABLE "public"."cart" (
 
 CREATE TABLE "public"."productSizes" (
 	"productId" integer NOT NULL,
-	"size" DECIMAL NOT NULL
+	"sizes" json NOT NULL
 ) WITH (
   OIDS=FALSE
 );
