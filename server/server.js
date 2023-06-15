@@ -22,8 +22,22 @@ app.use(express.static(reactStaticDir));
 app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello, World!' });
+app.get('/api/productPhotos', async (req, res) => {
+  try {
+    const sql = ` 
+    select "pp"."productId",
+    "pp"."photoUrl",
+    "products"."productName"
+    from "productPhotos" as "pp"
+    join "products" using ("productId")
+    limit 6
+      `;
+    const result = await db.query(sql);
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'an unexpected error occurred' });
+  }
 });
 
 /**
@@ -37,7 +51,7 @@ app.get('/api/hello', (req, res) => {
  * Catching everything that doesn't match a route and serving index.html allows
  * React Router to manage the routing.
  */
-app.get('*', (req, res) => res.sendFile(`${reactStaticDir}/index.html`));
+// app.get('*', (req, res) => res.sendFile(`${reactStaticDir}/index.html`));
 
 app.use(errorMiddleware);
 

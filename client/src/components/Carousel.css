@@ -1,0 +1,12 @@
+/* stylelint-disable font-family-name-quotes */
+.border-blk {
+  border: 3px solid black;
+}
+
+.arrow {
+  scale: 160%;
+}
+
+h2 {
+  font-family: 'Comfortaa', cursive;
+}
