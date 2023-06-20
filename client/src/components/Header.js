@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 export default function Header() {
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full flex justify-center items-center mb-2">
         <nav className="w-full bg-black flex justify-between items-center h-14 px-5">
           <div className="h-full flex items-center">
             <i className="fa-solid fa-magnifying-glass w-full text-white text-xl"></i>
