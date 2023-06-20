@@ -12,7 +12,7 @@ export default function ProductList({ products }) {
           <img src={product.photoUrl.urls[0]} alt={product.productName} />
         </div>
         <div className="flex flex-col items-center">
-          <h2>{product.team}</h2>
+          <h2 className="text-center">{product.team}</h2>
           <h3>{product.price}</h3>
         </div>
       </Link>

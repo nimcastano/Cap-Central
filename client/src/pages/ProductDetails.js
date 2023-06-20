@@ -38,8 +38,6 @@ export default function ProductDetails() {
 
   if (!product) return null;
 
-  console.log(product);
-
   const { productName, photoUrl, productDesc, sizes, price } = product;
   const urls = photoUrl.urls;
 
@@ -59,8 +57,12 @@ export default function ProductDetails() {
   return (
     <div className="container flex justify-center w-5/6">
       <div className="flex w-1/2 flex-col justify-around">
-        <div className="flex justify-center w-full item-center bg-white drop-shadow-sm rounded-md">
-          <img src={mainPic} alt={productName} className="m-1 w-full" />
+        <div className="flex justify-center w-full item-center bg-white drop-shadow-sm rounded-md h-80">
+          <img
+            src={mainPic}
+            alt={productName}
+            className="m-1 w-full object-contain"
+          />
         </div>
         <div className="w-full flex flex-wrap drop-shadow-sm">{photoList}</div>
       </div>
