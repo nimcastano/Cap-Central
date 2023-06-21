@@ -37,7 +37,7 @@ export default function Carousel() {
 
   if (imgs !== undefined) {
     return (
-      <div className="flex justify-between items-center w-4/5 h-96 bg-white drop-shadow-md rounded px-4 mb-4">
+      <div className="flex justify-between items-center w-4/5 h-80 bg-white drop-shadow-md rounded px-4 mb-4">
         <i
           className="arrow fa-solid fa-chevron-left"
           onClick={() => setHatId((hatId - 1 + imgs.length) % imgs.length)}
@@ -49,7 +49,7 @@ export default function Carousel() {
             <img
               src={imgs[hatId].photoUrl.urls[0]}
               alt={imgs[hatId].productName}
-              className="max-h-80"
+              className="max-h-64"
             />
             <h2 className="text-center">{imgs[hatId].productName}</h2>
           </div>

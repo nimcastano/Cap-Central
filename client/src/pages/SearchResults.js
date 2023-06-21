@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { fetchCatalog } from '../lib/api';
 import ProductList from '../components/ProductList';
+import { useParams } from 'react-router-dom';
 
-export default function SearchResults({ searchTerm }) {
+export default function SearchResults() {
   const [products, setProducts] = useState();
   const [error, setError] = useState();
+  const { searchTerm } = useParams();
 
   useEffect(() => {
     async function getProducts() {
@@ -24,7 +26,7 @@ export default function SearchResults({ searchTerm }) {
 
   if (products !== undefined) {
     const filteredProds = products.filter((prod) =>
-      prod.productDesc.toLowerCase().includes({ searchTerm })
+      prod.productDesc.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
