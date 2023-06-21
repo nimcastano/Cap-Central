@@ -47,6 +47,7 @@ app.get('/api/browse', async (req, res, next) => {
     "pp"."photoUrl",
     "products"."team",
     "products"."productName",
+    "products"."productDesc",
     "prices"."price"
     from "productPhotos" as "pp"
     join "products" using ("productId")
@@ -62,7 +63,7 @@ app.get('/api/browse', async (req, res, next) => {
 app.get('/api/browse/:productId', async (req, res, next) => {
   try {
     const productId = Number(req.params.productId);
-    if (!productId) {
+    if (!productId || isNaN(productId) || productId < 1) {
       throw new ClientError(
         404,
         `cannot find product with productId ${productId}`

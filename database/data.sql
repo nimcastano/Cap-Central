@@ -30,10 +30,10 @@ values
 ('St. Louis Cardinals New Era Brown Custom Corduroy Brim Side Patch 59FIFTY Fitted Hat',
 'Represent your St. Louis Cardinals with this exclusive drop. Brown top, corduroy black bill, metallic gold detailing, corduroy button. This New Era Men''s 59FIFTY fitted hat a must have. Clean. Classic. A hat that is stylish with anything.',
 'St. Louis Cardinals'),
-('Watercolor Floral 59FIFTY Fitted',
+('Chicago White Sox Watercolor Floral 59FIFTY Fitted',
 'The Chicago White Sox Watercolor Floral 59FIFTY Fitted Cap features an embroidered White Sox logo surrounded by flower and bee details at the front panels and an MLB Batterman logo at the rear. Additional details include a floral undervisor.',
 'Chicago White Sox'),
-('Florida Marlins World Series Black Wool 59FIFTY Fitted',
+('Seattle Mariners Florida Marlins World Series Black Wool 59FIFTY Fitted',
 'Celebrating their 1997 World Series victory, the Florida Marlins World Series 59FIFTY Fitted Cap features a 100% Wool woven fabrication with an embroidered Marlins logo at the front panels and a 1997 World Series Side Patch at the left-wear side with an MLB Batterman logo at the rear.',
 'Seattle Mariners');
 
