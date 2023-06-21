@@ -51,7 +51,7 @@ CREATE TABLE "public"."productSizes" (
 
 CREATE TABLE "public"."prices" (
 	"productId" integer NOT NULL,
-	"price" money NOT NULL
+	"price" DECIMAL NOT NULL
 ) WITH (
   OIDS=FALSE
 );

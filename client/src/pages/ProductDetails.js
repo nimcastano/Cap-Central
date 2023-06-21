@@ -71,7 +71,7 @@ export default function ProductDetails() {
           <h2 className="text-center font-bold text-lg">{productName}</h2>
         </div>
         <div className="w-full px-1 my-4">
-          <h2 className="w-full text-left font-medium text-xl">{price}</h2>
+          <h2 className="w-full text-left font-medium text-xl ml-2">{`$${price}`}</h2>
         </div>
         <div className="w-full">
           <form className="w-full flex justify-evenly">

@@ -13,7 +13,7 @@ export default function ProductList({ products }) {
         </div>
         <div className="flex flex-col items-center">
           <h2 className="text-center text-sm">{product.team}</h2>
-          <h3 className="text-sm">{product.price}</h3>
+          <h3 className="text-sm">{`$${product.price}`}</h3>
         </div>
       </Link>
     </li>

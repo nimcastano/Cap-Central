@@ -48,10 +48,12 @@ app.get('/api/browse', async (req, res, next) => {
     "products"."team",
     "products"."productName",
     "products"."productDesc",
-    "prices"."price"
+    "prices"."price",
+    "productSizes"."sizes"
     from "productPhotos" as "pp"
     join "products" using ("productId")
     join "prices" using ("productId")
+    join "productSizes" using ("productId")
     `;
     const result = await db.query(sql);
     res.json(result.rows);
