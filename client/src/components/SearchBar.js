@@ -18,7 +18,7 @@ export default function SearchBar() {
         name="key"
         type="textbox"
         placeholder="ex: Dodgers"
-        className="rounded bg h-4/5 p-1 mr-2"
+        className="rounded bg h-4/5 p-2 mr-2 text-sm"
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <button type="submit">

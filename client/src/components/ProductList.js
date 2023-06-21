@@ -8,10 +8,10 @@ export default function ProductList({ products }) {
       <Link
         to={`/details/${product.productId}`}
         className=" bg-white h-full drop-shadow-sm flex flex-col justify-between items-center rounded py-2 px-2">
-        <div className="m-2">
+        <div className="m-2 flex items-center h-full">
           <img src={product.photoUrl.urls[0]} alt={product.productName} />
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center h-fit">
           <h2 className="text-center text-sm">{product.team}</h2>
           <h3 className="text-sm">{`$${product.price}`}</h3>
         </div>

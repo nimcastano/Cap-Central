@@ -51,7 +51,9 @@ export default function Carousel() {
               alt={imgs[hatId].productName}
               className="max-h-64"
             />
-            <h2 className="text-center">{imgs[hatId].productName}</h2>
+            <h2 className="text-center font-semibold">
+              {imgs[hatId].productName}
+            </h2>
           </div>
         </Link>
         <i

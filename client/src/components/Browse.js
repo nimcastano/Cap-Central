@@ -26,7 +26,10 @@ export default function Browse() {
 
   if (products !== undefined) {
     return (
-      <div className="w-full flex flex-wrap">
+      <div className="w-full flex flex-wrap flex-col items-center">
+        <h2 className="text-lg text-bold text-center bg-red-800 text-white w-full mb-2">
+          Newest Arrivals
+        </h2>
         <ProductList products={products} />
       </div>
     );
