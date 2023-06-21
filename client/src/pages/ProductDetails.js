@@ -75,7 +75,10 @@ export default function ProductDetails() {
         </div>
         <div className="w-full">
           <form className="w-full flex justify-evenly">
-            <select name="size" id="size">
+            <select
+              name="size"
+              id="size"
+              className="text-sm rounded border border-black">
               <option value="">Size</option>
               {sizeList}
             </select>
